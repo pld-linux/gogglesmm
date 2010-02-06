@@ -8,8 +8,10 @@ Group:		X11/Applications/Multimedia
 Source0:	http://gogglesmm.googlecode.com/files/%{shortname}-%{version}.tar.lzma
 # Source0-md5:	a3a3f27cc52ef50033c8a19e4874c677
 URL:		http://code.google.com/p/gogglesmm/
+BuildRequires:	bash
 BuildRequires:	dbus-devel
 BuildRequires:	fox-devel
+BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
 BuildRequires:	taglib-devel
 BuildRequires:	xine-lib-devel
@@ -24,15 +26,18 @@ editing.
 
 %prep
 %setup -q -n %{shortname}-%{version}
+#for verbose build
+#sed 's/^\t@/\t/' -i Makefile
 
 %build
-CFLAGS="%{rpmcflags}"
-CPPFLAGS="%{rpmcxxflags}"
-CXX="%{__cxx}"
-LDFLAGS="%{rpmldflags}"
-LIBPREFIX="%{_libdir}"
-export CFLAGS CPPFLAGS CXX LDFLAGS LIBPREFIX
-%configure
+CFLAGS="%{rpmcxxflags}" \
+INCFLAGS="%{rpmcppflags}" \
+CXX="%{__cxx}" \
+LINK="%{__cxx}" \
+LDFLAGS="%{rpmcxxflags} %{rpmldflags}" \
+LIBPREFIX="%{_libdir}" \
+./configure
+
 %{__make}
 
 %install
@@ -49,6 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/gmm
 %{_desktopdir}/gmm.desktop
 %{_iconsdir}/hicolor/48x48/apps/gmm.png
