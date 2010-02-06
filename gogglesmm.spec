@@ -1,5 +1,6 @@
 %define shortname	musicmanager
-Summary:	Goggles Music Manager is a music collection manager
+Summary:	Goggles Music Manager is a music collection manager and player
+Summary(hu.UTF-8):	Goggles Music Manager egy zenegyűjtemény-kezelő és lejátszó
 Name:		gogglesmm
 Version:	0.10.17
 Release:	0.1
@@ -23,6 +24,12 @@ Goggles Music Manager is a music collection manager and player that
 automatically categorizes your music files based on genre, artist,
 album, and song. It supports gapless playback and features easy tag
 editing.
+
+%description -l hu.UTF-8
+Goggles Musinc Manager egy zenegyűjtemény kezelő és lejátszó, amely
+automatikusan kategorizálja a zenefájlaidat stítlus, előadó, album és
+dal alapján. Szünetmentes lejátszást és könnyű tag-szerkesztést is
+biztosít.
 
 %prep
 %setup -q -n %{shortname}-%{version}
