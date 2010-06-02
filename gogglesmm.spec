@@ -16,6 +16,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
 BuildRequires:	taglib-devel
 BuildRequires:	taglib-extras-devel
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xine-lib-devel
 Suggests:	libfetch
 Requires:	xine-plugin-audio
