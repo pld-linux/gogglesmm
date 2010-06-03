@@ -1,13 +1,12 @@
-%define shortname	musicmanager
 Summary:	Goggles Music Manager is a music collection manager and player
 Summary(hu.UTF-8):	Goggles Music Manager egy zenegyűjtemény-kezelő és lejátszó
 Name:		gogglesmm
-Version:	0.10.22
+Version:	0.10.23
 Release:	1
 License:	GPL v3
 Group:		X11/Applications/Multimedia
-Source0:	http://gogglesmm.googlecode.com/files/%{shortname}-%{version}.tar.xz
-# Source0-md5:	86aabf72ad463e8abc69444de8ed8b12
+Source0:	http://gogglesmm.googlecode.com/files/%{name}-%{version}.tar.xz
+# Source0-md5:	dbbf36ce1f2870c410862e3ab10a7b09
 URL:		http://code.google.com/p/gogglesmm/
 BuildRequires:	bash
 BuildRequires:	dbus-devel
@@ -18,8 +17,8 @@ BuildRequires:	taglib-devel
 BuildRequires:	taglib-extras-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xine-lib-devel
-Suggests:	libfetch
 Requires:	xine-plugin-audio
+Suggests:	libfetch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,7 +34,7 @@ dal alapján. Szünetmentes lejátszást és könnyű tag-szerkesztést is
 biztosít.
 
 %prep
-%setup -q -n %{shortname}-%{version}
+%setup -q
 #for verbose build
 sed 's/^\t@/\t/' -i Makefile
 
@@ -64,6 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %{_bindir}/gmm
-%{_desktopdir}/gmm.desktop
-%{_iconsdir}/hicolor/48x48/apps/gmm.png
+%attr(755,root,root) %{_bindir}/%{name}
+%{_desktopdir}/%{name}.desktop
+%{_iconsdir}/hicolor/48x48/apps/%{name}.png
