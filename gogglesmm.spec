@@ -9,8 +9,10 @@ Source0:	http://gogglesmm.googlecode.com/files/%{name}-%{version}.tar.xz
 # Source0-md5:	4eff4c331e871f26044ee10280cddfb0
 URL:		http://code.google.com/p/gogglesmm/
 BuildRequires:	bash
+BuildRequires:	curl-devel
 BuildRequires:	dbus-devel
 BuildRequires:	fox-devel >= 1.7.19-6
+BuildRequires:	libgcrypt-devel
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
 BuildRequires:	taglib-devel
