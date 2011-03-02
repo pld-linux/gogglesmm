@@ -30,7 +30,7 @@ album, and song. It supports gapless playback and features easy tag
 editing.
 
 %description -l hu.UTF-8
-Goggles Musinc Manager egy zenegyűjtemény kezelő és lejátszó, amely
+Goggles Music Manager egy zenegyűjtemény kezelő és lejátszó, amely
 automatikusan kategorizálja a zenefájlaidat stítlus, előadó, album és
 dal alapján. Szünetmentes lejátszást és könnyű tag-szerkesztést is
 biztosít.
