@@ -20,7 +20,6 @@ BuildRequires:	taglib-extras-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xine-lib-devel
 Requires:	xine-plugin-audio
-Suggests:	libfetch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
