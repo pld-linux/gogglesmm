@@ -1,12 +1,12 @@
 Summary:	Goggles Music Manager is a music collection manager and player
 Summary(hu.UTF-8):	Goggles Music Manager egy zenegyűjtemény-kezelő és lejátszó
 Name:		gogglesmm
-Version:	0.12.5
-Release:	2
+Version:	0.12.6
+Release:	1
 License:	GPL v3
 Group:		X11/Applications/Multimedia
 Source0:	http://gogglesmm.googlecode.com/files/%{name}-%{version}.tar.xz
-# Source0-md5:	1b8e867757f4874eccf3db4f40855688
+# Source0-md5:	dd1dd6735c6742cf92c72eb2efc60174
 URL:		http://code.google.com/p/gogglesmm/
 BuildRequires:	bash
 BuildRequires:	curl-devel
@@ -41,7 +41,7 @@ sed 's/^\t@/\t/' -i Makefile
 
 %build
 CFLAGS="%{rpmcxxflags}" \
-INCFLAGS="%{rpmcppflags}" \
+INCFLAGS="%{rpmcppflags} $(pkg-config --cflags-only-I fox17 taglib dbus-1)" \
 CXX="%{__cxx}" \
 LINK="%{__cxx}" \
 LDFLAGS="%{rpmcxxflags} %{rpmldflags}" \
