@@ -1,0 +1,44 @@
+--- gogglesmm-0.12.7/src/GMDatabaseSource.cpp~	2011-06-08 22:22:34.000000000 +0200
++++ gogglesmm-0.12.7/src/GMDatabaseSource.cpp	2014-01-02 14:13:22.282806231 +0100
+@@ -445,7 +445,7 @@
+ #if FOXVERSION < FXVERSION(1,7,0)
+   for (FXint i=0;i<albumicons.size();i++){
+ #else
+-  for (FXuint i=0;i<albumicons.size();i++){
++  for (FXuint i=0;i<albumicons.no();i++){
+ #endif
+     if (!albumicons.empty(i)) {
+       albumicon = (FXIcon*)albumicons.value(i);
+--- gogglesmm-0.12.7/src/GMImportDialog.cpp~	2012-07-31 03:41:46.000000000 +0200
++++ gogglesmm-0.12.7/src/GMImportDialog.cpp	2014-01-02 14:18:05.529470847 +0100
+@@ -179,8 +179,8 @@
+   GMTreeListBox::replace(dirbox);
+ 
+   bookmarkmenu=new GMMenuPane(this,POPUP_SHRINKWRAP);
+-  new GMMenuCommand(bookmarkmenu,tr("&Set bookmark\t\tBookmark current directory."),markicon,this,ID_BOOKMARK);
+-  new GMMenuCommand(bookmarkmenu,tr("&Clear bookmarks\t\tClear bookmarks."),clearicon,&bookmarks,FXRecentFiles::ID_CLEAR);
++  new GMMenuCommand(bookmarkmenu,tr("&Set bookmark\t\tBookmark current directory."),bookaddicon,this,ID_BOOKMARK);
++  new GMMenuCommand(bookmarkmenu,tr("&Clear bookmarks\t\tClear bookmarks."),bookclricon,&bookmarks,FXRecentFiles::ID_CLEAR);
+   FXMenuSeparator* sep1=new FXMenuSeparator(bookmarkmenu);
+   sep1->setTarget(&bookmarks);
+   sep1->setSelector(FXRecentFiles::ID_ANYFILES);
+@@ -199,7 +199,7 @@
+   new GMButton(navbuttons,tr("\tGo up one directory\tMove up to higher directory."),updiricon,this,ID_DIRECTORY_UP,BUTTON_TOOLBAR|FRAME_RAISED,0,0,0,0, 3,3,3,3);
+   new GMButton(navbuttons,tr("\tGo to home directory\tBack to home directory."),homeicon,this,ID_HOME,BUTTON_TOOLBAR|FRAME_RAISED,0,0,0,0, 3,3,3,3);
+   new GMButton(navbuttons,tr("\tGo to work directory\tBack to working directory."),workicon,this,ID_WORK,BUTTON_TOOLBAR|FRAME_RAISED,0,0,0,0, 3,3,3,3);
+-  GMMenuButton *bookmenu=new GMMenuButton(navbuttons,tr("\tBookmarks\tVisit bookmarked directories."),markicon,bookmarkmenu,MENUBUTTON_NOARROWS|MENUBUTTON_ATTACH_LEFT|MENUBUTTON_TOOLBAR|FRAME_RAISED,0,0,0,0, 3,3,3,3);
++  GMMenuButton *bookmenu=new GMMenuButton(navbuttons,tr("\tBookmarks\tVisit bookmarked directories."),bookaddicon,bookmarkmenu,MENUBUTTON_NOARROWS|MENUBUTTON_ATTACH_LEFT|MENUBUTTON_TOOLBAR|FRAME_RAISED,0,0,0,0, 3,3,3,3);
+   bookmenu->setTarget(this);
+   bookmenu->setSelector(ID_BOOKMENU);
+   new GMButton(navbuttons,tr("\tCreate new directory\tCreate new directory."),newicon,this,ID_NEW,BUTTON_TOOLBAR|FRAME_RAISED,0,0,0,0, 3,3,3,3);
+--- gogglesmm-0.12.7/src/GMDBus.cpp~	2011-10-08 18:56:06.000000000 +0200
++++ gogglesmm-0.12.7/src/GMDBus.cpp	2014-01-02 14:19:14.802803679 +0100
+@@ -64,7 +64,7 @@
+ #if FOXVERSION < FXVERSION(1,7,0)
+     for (FXint i=0;i<connections.size();i++) {
+ #else
+-    for (FXuint i=0;i<connections.size();i++) {
++    for (FXuint i=0;i<connections.no();i++) {
+ #endif
+       if (!connections.empty(i)) {
+         ((GMDBus*)connections.value(i))->setup_event_loop();
