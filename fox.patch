@@ -42,3 +42,14 @@
  #endif
        if (!connections.empty(i)) {
          ((GMDBus*)connections.value(i))->setup_event_loop();
+--- gogglesmm-0.12.7/src/GMAudioScrobbler.cpp~	2012-12-16 01:57:31.000000000 +0100
++++ gogglesmm-0.12.7/src/GMAudioScrobbler.cpp	2014-01-02 22:02:31.428604100 +0100
+@@ -692,7 +692,7 @@
+     FXFileStream store;
+     if (store.open(filename,FXStreamSave)){
+       store << version;
+-      store << submitqueue.no();
++      store << (FXlong)submitqueue.no();
+       for (FXint i=0;i<submitqueue.no();i++)
+         submitqueue[i].save(store);
+       }
