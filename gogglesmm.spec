@@ -1,5 +1,6 @@
-Summary:	Goggles Music Manager is a music collection manager and player
+Summary:	Goggles Music Manager - a music collection manager and player
 Summary(hu.UTF-8):	Goggles Music Manager egy zenegyűjtemény-kezelő és lejátszó
+Summary(pl.UTF-8):	Goggles Music Manager - zarządca i odtwarzacz kolekcji muzyki
 Name:		gogglesmm
 Version:	1.3.1
 Release:	1
@@ -33,6 +34,12 @@ Goggles Music Manager egy zenegyűjtemény kezelő és lejátszó, amely
 automatikusan kategorizálja a zenefájlaidat stítlus, előadó, album és
 dal alapján. Szünetmentes lejátszást és könnyű tag-szerkesztést is
 biztosít.
+
+%description -l pl.UTF-8
+Goggles Music Manager to zarządca i odtwarzacz kolekcji muzyki,
+automatycznie kategoryzujący pliki muzyczne w oparciu o gatunek,
+artystę, album i utwór. Obsługuje odtwarzanie bez przerw, umożliwia
+łatwe modyfikowanie znaczników.
 
 %package devel
 Summary:	Header files for gap library
