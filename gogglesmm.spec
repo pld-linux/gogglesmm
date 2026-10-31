@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Goggles Music Manager egy zenegyűjtemény-kezelő és leját
 Summary(pl.UTF-8):	Goggles Music Manager - zarządca i odtwarzacz kolekcji muzyki
 Name:		gogglesmm
 Version:	1.3.1
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications/Multimedia
 Source0:	https://github.com/gogglesmm/gogglesmm/archive/%{version}/%{name}-%{version}.tar.gz
@@ -82,6 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/%{name}
+%dir %{_libdir}/gogglesmm
 %{_libdir}/gogglesmm/libgap_alsa.so
 %{_libdir}/gogglesmm/libgap_pulse.so
 %{_libdir}/gogglesmm/libgap_wav.so
